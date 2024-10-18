@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World View</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: url('bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 200px;
+        }
+        .image-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .image-container img {
+            max-width: 50%;
+            border-radius: 10px;
+            display: none;
+        }
+        .message {
+            display: none;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        #img144 {
+            filter: blur(2px);
+            transform: scale(0.5);
+            image-rendering: pixelated;
+        }
+        #img360 {
+            filter: blur(1px);
+            transform: scale(0.5);
+            image-rendering: pixelated;
+        }
+        #img480 {
+            filter: blur(0.5px);
+            transform: scale(0.5);
+            image-rendering: pixelated;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>How does the world look like to me?</h1>
+        <select id="resolutionSelector">
+            <option value="">Select Resolution</option>
+            <option value="144">144p</option>
+            <option value="360">360p</option>
+            <option value="480">480p</option>
+            <option value="1080">1080p</option>
+        </select>
+        <div class="image-container">
+            <img id="img144" src="image.png" alt="144p Image">
+            <img id="img360" src="image.png" alt="360p Image">
+            <img id="img480" src="image.png" alt="480p Image">
+        </div>
+        <div class="message" id="loveMessage">YOU MY LOVE ❤️❤️❤️ (Disha ofc)</div>
+    </div>
+    <script>
+        document.getElementById('resolutionSelector').addEventListener('change', function() {
+            var selectedValue = this.value;
+            var images = document.querySelectorAll('.image-container img');
+            images.forEach(function(img) {
+                img.style.display = 'none';
+            });
+            document.getElementById('loveMessage').style.display = 'none';
+            
+            if (selectedValue) {
+                if (selectedValue === '1080') {
+                    document.getElementById('loveMessage').style.display = 'block';
+                } else {
+                    var imgId = 'img' + selectedValue;
+                    document.getElementById(imgId).style.display = 'block';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
