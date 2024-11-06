@@ -81,8 +81,9 @@
             <img id="img144" src="image.png" alt="144p Image">
             <img id="img360" src="image.png" alt="360p Image">
             <img id="img480" src="image.png" alt="480p Image">
+            <img id="img1080" src="love.png" alt="1080p Image">
         </div>
-        <div class="message" id="loveMessage">YOU MY LOVE ❤️❤️❤️ (Disha ofc)</div>
+        <div class="message" id="loveMessage">YOU MY LOVE ❤️❤️❤️ (Isabel ofc)</div>
     </div>
     <script>
         document.getElementById('resolutionSelector').addEventListener('change', function() {
@@ -95,6 +96,8 @@
             
             if (selectedValue) {
                 if (selectedValue === '1080') {
+                    var imgId = 'img' + selectedValue;
+                    document.getElementById(imgId).style.display = 'block';
                     document.getElementById('loveMessage').style.display = 'block';
                 } else {
                     var imgId = 'img' + selectedValue;
